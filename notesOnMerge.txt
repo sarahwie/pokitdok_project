@@ -1,0 +1,22 @@
+To run subsets on PokitDok huge datafile:
+
+1) split dataset into 5 subsets
+$ mkdir parts
+$ split --number=l/5 npidata_20170108.jsonl
+
+
+2) To combine 5 subsets of re-written-out .jsonl files
+$ cat file1.jsonl file2.jsonl > combinedfile.jsonl
+
+
+3) To make sure that number of lines in combined file matches sum of num. lines in each subset file
+$ wc -l * 
+
+
+4) To compress:
+$ gzip combinedfile.jsonl
+
+
+Note: 
+$head -n 1 filename.jsonl
+gives you the first record since .jsonl format has each json element as a file line
